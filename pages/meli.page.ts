@@ -9,14 +9,17 @@ export class MeliPage {
   public productTitleCard = this.page.locator("h1.center-card__title");
   public txtComprar = this.page.getByRole('button', { name: 'Comprar ahora' });
 
-  /*async searchProduct() {
-    await this.searchBar.click();
+  async searchProduct(text: string) {
+    await expect(this.searchBar).toBeVisible();
+    await this.searchBar.fill(text);
+    await this.searchButton.click();
   }
 
   async fillSearchInput(text: string) {
-    await this.searchBar.fill(text);
     await expect(this.searchBar).toBeVisible()
-  }*/
+    await this.searchBar.fill(text);
+    
+  }
 
 };
 

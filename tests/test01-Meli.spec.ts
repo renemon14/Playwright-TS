@@ -5,9 +5,7 @@ import { MeliPage } from '../pages/meli.page';
 test('Buying first product in Mercado Libre Argentina', async ({ page }) => {
   const meli = new MeliPage(page)
   await page.goto('/')
-  await expect(meli.searchBar).toBeVisible();
-  await meli.searchBar.fill('smart tv');
-  await meli.searchButton.click();
+  await meli.searchProduct('smart tv')
   const rows = await page.$$(meli.productTitles);
   await rows[1].click();
   await meli.txtComprar.click();
@@ -17,9 +15,7 @@ test('Buying first product in Mercado Libre Argentina', async ({ page }) => {
 test('Buying second product in Mercado Libre Argentina', async ({ page }) => {
   const meli = new MeliPage(page)
   await page.goto('/')
-  await expect(meli.searchBar).toBeVisible();
-  await meli.searchBar.fill('smart tv');
-  await meli.searchButton.click();
+  await meli.searchProduct('smart tv')
   const rows = await page.$$(meli.productTitles);
   await rows[2].click();
   await meli.txtComprar.click();
