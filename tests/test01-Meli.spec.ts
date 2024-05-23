@@ -15,9 +15,9 @@ test('Buying first product in Mercado Libre Argentina', async ({ page }) => {
 test('Buying second product in Mercado Libre Argentina', async ({ page }) => {
   const meli = new MeliPage(page)
   await page.goto('/')
-  await meli.searchProduct('smart tv')
+  await meli.searchProduct('xbox')
   const rows = await page.$$(meli.productTitles);
-  await rows[2].click();
+  await rows[1].click();
   await meli.txtComprar.click();
   await expect(meli.productTitleCard).toContainText('¡Hola! Para comprar, ingresá');
 });
